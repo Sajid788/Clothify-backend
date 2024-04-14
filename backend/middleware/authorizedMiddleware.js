@@ -10,7 +10,7 @@ const authorizedMiddleware = async (req, res, next) => {
   if (req.headers.authorization) {
     try {
       // Extract token from Authorization header
-      token = req.headers.authorization.split("Bearer ")[1];
+      token = req.headers.authorization.split(" ")[1];
       // Verify and decode the token using the user secret key
       var decoded = await jwt.verify(token, process.env.USER_SECRET_KEY);
       if (decoded) {
