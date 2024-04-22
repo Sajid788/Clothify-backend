@@ -10,7 +10,7 @@ const adminMiddleware = async (req, res, next) => {
   if (req.headers.authorization) {
     try {
       // Extract token from Authorization header
-      token = req.headers.authorization.split("Bearer ")[1];
+      token = req.headers.authorization.split(" ")[1];
       // Verify and decode the token using the admin secret key
       var decoded = await jwt.verify(token, process.env.ADMIN_SECRET_KEY);
       if (decoded) {
