@@ -34,7 +34,8 @@ app.use((req, res) => {
 
 app.listen(PORT, async () => {
   try {
-    await connection();
+    await connection;
+    console.log("connected deta base")
   } catch (error) {
     console.log(error);
   }
