@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+require('dotenv').config()
+
 const connection = async () => {
   try {
     // Attempt to connect to MongoDB using the provided URL from the environment variables
@@ -10,4 +12,6 @@ const connection = async () => {
   }
 };
 
-module.exports = { connection };
+const PORT = process.env.PORT
+
+module.exports = { connection, PORT};

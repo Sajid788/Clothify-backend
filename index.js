@@ -1,8 +1,7 @@
-require("dotenv").config();
 const cors = require('cors');
 const express = require("express");
 
-const { connection } = require("./config/db");
+const { connection,PORT} = require("./config/db");
 const { userRouter } = require("./routes/user_routes");
 const { adminRouter } = require('./routes/admin_routes');
 const { productRouter } = require('./routes/product_routes');
@@ -33,7 +32,7 @@ app.use((req, res) => {
   res.status(404).send("Route not found");
 });
 
-app.listen(process.env.PORT, async () => {
+app.listen(PORT, async () => {
   try {
     await connection();
   } catch (error) {
